@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas Sanas Arg | Bienestar y Nutrición Animal</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bg-dark: #121620;
+            --card-dark: #1c2230;
+            --accent: #e05a1a;
+            --text-secondary: #a0a0a0;
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navbar */
+        .navbar { 
+            background-color: rgba(28, 34, 48, 0.95); 
+            border-bottom: 2px solid var(--accent);
+        }
+        .navbar-brand { font-weight: bold; color: var(--accent) !important; }
+
+        /* Hero Section */
+        .hero { 
+            padding: 100px 0; 
+            background: linear-gradient(rgba(18, 22, 32, 0.7), rgba(18, 22, 32, 0.9)), 
+                        url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        /* Sección Presentación */
+        .presentacion {
+            background-color: #1c2230;
+            padding: 80px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        /* Sección Beneficios */
+        .beneficios {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 60px 0;
+        }
+
+        /* Cards de Productos */
+        .card { 
+            background-color: var(--card-dark); 
+            border: 1px solid #333; 
+            color: white; 
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+        }
+        .card-img-top { height: 200px; object-fit: cover; }
+        
+        .btn-hotmart { 
+            background-color: var(--accent); 
+            color: white; 
+            font-weight: bold; 
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        .btn-hotmart:hover { background-color: #c04a10; color: white; transform: scale(1.05); }
+
+        /* Footer */
+        footer { 
+            background-color: #0b0e14; 
+            padding: 60px 0; 
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-paw-fill"></i> MASCOTAS SANAS ARG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#presentacion">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Tu mascota merece lo mejor</h1>
+            <p class="lead mb-4 fs-4 text-light">Acompañamos a dueños responsables en el camino hacia una vida animal más sana.</p>
+            <a href="#cursos" class="btn btn-lg btn-hotmart px-5 py-2">Ver Catálogo Profesional</a>
+        </div>
+    </header>
+
+    <!-- Sección de Presentación / Misión -->
+    <section class="presentacion" id="presentacion">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4" style="color: var(--accent);">Nuestra Misión</h2>
+                    <p class="lead mb-4">
+                        Hola, bienvenido a <strong>Mascotas Sanas Arg</strong>. 
+                        Nuestra misión es conectar a dueños responsables con los mejores programas educativos de <strong>Hotmart</strong>.
+                    </p>
+                    <p class="text-secondary fs-5">
+                        Seleccionamos cuidadosamente cursos de nutrición, primeros auxilios y estética profesional 
+                        para que tu perro o gato reciba el cuidado de excelencia que se merece. 
+                        Porque un dueño informado es el mejor amigo de su mascota.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section class="beneficios text-center">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <i class="bi bi-shield-check-fill h1 text-success"></i>
+                    <h4 class="fw-bold">Garantía Hotmart</h4>
+                    <p class="text-muted">7 días de satisfacción garantizada o te devolvemos el 100% de tu dinero.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-laptop-fill h1 text-primary"></i>
+                    <h4 class="fw-bold">Acceso Inmediato</h4>
+                    <p class="text-muted">Estudiá a tu ritmo, desde cualquier dispositivo y para siempre.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-patch-check-fill h1 text-warning"></i>
+                    <h4 class="fw-bold">Certificado Oficial</h4>
+                    <p class="text-muted">Al finalizar cada curso, recibís una certificación internacional de Hotmart.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Cursos -->
+    <main class="container py-5" id="cursos">
+        <h2 class="text-center mb-5 fw-bold">Nuestras Recomendaciones</h2>
+        <div class="row g-4">
+            {% for p in productos %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card shadow-sm">
+                    <img src="{{ url_for('static', filename=p.img) }}" class="card-img-top" alt="{{ p.titulo }}">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold mb-3">{{ p.titulo }}</h6>
+                        <p class="card-text small text-secondary mb-4">{{ p.descripcion }}</p>
+                        <p class="h5 text-success mt-auto mb-3">{{ p.precio }}</p>
+                        <a href="{{ p.link }}" target="_blank" class="btn btn-hotmart w-100">
+                            ¡Inscribirme Ahora!
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4" style="color: var(--accent);"><i class="bi bi-paw-fill"></i> Mascotas Sanas Arg</h3>
+            <p class="text-secondary mb-4 fs-5">¿Tenés alguna duda sobre los cursos? ¡Contactanos!</p>
+            
+            <div class="mb-4">
+                <!-- Recordá cambiar los links de Facebook y el correo por los tuyos -->
+                <a href="https://facebook.com/MascotasSanasArg" target="_blank" class="btn btn-outline-light btn-lg mx-2">
+                    <i class="bi bi-facebook"></i> Facebook
+                </a>
+                <a href="mailto:tuemail@gmail.com" class="btn btn-outline-light btn-lg mx-2">
+                    <i class="bi bi-envelope-at-fill"></i> Gmail
+                </a>
+            </div>
+
+            <hr class="border-secondary my-5">
+            <p class="small text-secondary mb-0">
+                &copy; 2026 Mascotas Sanas Arg - Catálogo de Afiliados Oficial de Hotmart.<br>
+                Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="//code.tidio.co/sza80fdqritoeezbi3bro2ft28pjxibi.js" async></script>
+</body>
+</html>
