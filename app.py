@@ -29,14 +29,14 @@ cursos = [
         "titulo": "Pastelería Canina y Felina", 
         "precio": "69.99 USD", 
         "img": "foto4.jpg", 
-        "link": "https://go.hotmart.com/V105110074P?dp=1", 
+        "link": "https://go.hotmart.com/X105090474W", 
         "descripcion": "Creá snacks y tortas saludables sin químicos. ¡A tus mascotas les va a encantar!"
     },
     {
         "titulo": "Alimentación Especial", 
         "precio": "10.00 USD", 
         "img": "foto5.jpg", 
-        "link": "https://go.hotmart.com/V105110074P?dp=1", 
+        "link": "https://go.hotmart.com/N105116839I?dp=1", 
         "descripcion": "Guía especializada para perros con necesidades nutricionales específicas."
     },
     {
