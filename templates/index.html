@@ -21,14 +21,12 @@
             scroll-behavior: smooth;
         }
         
-        /* Navbar */
         .navbar { 
             background-color: rgba(28, 34, 48, 0.95); 
             border-bottom: 2px solid var(--accent);
         }
         .navbar-brand { font-weight: bold; color: var(--accent) !important; }
 
-        /* Hero Section */
         .hero { 
             padding: 100px 0; 
             background: linear-gradient(rgba(18, 22, 32, 0.7), rgba(18, 22, 32, 0.9)), 
@@ -38,21 +36,18 @@
             text-align: center;
         }
 
-        /* Sección Presentación */
         .presentacion {
             background-color: #1c2230;
             padding: 80px 0;
             border-bottom: 1px solid #333;
         }
 
-        /* Sección Beneficios */
         .beneficios {
             background-color: #f8f9fa;
             color: #333;
             padding: 60px 0;
         }
 
-        /* Cards de Productos */
         .card { 
             background-color: var(--card-dark); 
             border: 1px solid #333; 
@@ -75,7 +70,6 @@
         }
         .btn-hotmart:hover { background-color: #c04a10; color: white; transform: scale(1.05); }
 
-        /* Footer */
         footer { 
             background-color: #0b0e14; 
             padding: 60px 0; 
@@ -120,9 +114,7 @@
                         Nuestra misión es conectar a dueños responsables con los mejores programas educativos de <strong>Hotmart</strong>.
                     </p>
                     <p class="text-secondary fs-5">
-                        Seleccionamos cuidadosamente cursos de nutrición, primeros auxilios y estética profesional 
-                        para que tu perro o gato reciba el cuidado de excelencia que se merece. 
-                        Porque un dueño informado es el mejor amigo de su mascota.
+                        Seleccionamos cuidadosamente cursos de nutrición, primeros auxilios y estética profesional para que tu perro o gato reciba el cuidado de excelencia que se merece.
                     </p>
                 </div>
             </div>
@@ -161,9 +153,13 @@
                     <div class="card-body d-flex flex-column text-center">
                         <h6 class="card-title fw-bold mb-3">{{ p.titulo }}</h6>
                         <p class="card-text small text-secondary mb-4">{{ p.descripcion }}</p>
-                        <p class="h5 text-success mt-auto mb-3 precio-dinamico" data-precio-ars="$13.900 ARS" data-precio-usd="10 USD">
-                            {{ p.precio }}
+                        
+                        <p class="h5 text-success mt-auto mb-3 precio-dinamico" 
+                           data-precio-ars="{{ p.precio }}" 
+                           data-precio-usd="{% if 'Alimentación' in p.titulo %}10.00 USD{% elif 'Primeros' in p.titulo %}49.99 USD{% elif 'Peluquería' in p.titulo %}49.99 USD{% elif 'Pastelería' in p.titulo %}69.99 USD{% else %}25.00 USD{% endif %}">
+                           {{ p.precio }}
                         </p>
+
                         <a href="{{ p.link }}" target="_blank" class="btn btn-hotmart w-100">
                             ¡Inscribirme Ahora!
                         </a>
@@ -177,8 +173,6 @@
     <footer id="contacto">
         <div class="container text-center">
             <h3 class="fw-bold mb-4" style="color: var(--accent);"><i class="bi bi-paw-fill"></i> Mascotas Sanas Arg</h3>
-            <p class="text-secondary mb-4 fs-5">¿Tenés alguna duda sobre los cursos? ¡Contactanos!</p>
-            
             <div class="mb-4">
                 <a href="https://facebook.com/MascotasSanasArg" target="_blank" class="btn btn-outline-light btn-lg mx-2">
                     <i class="bi bi-facebook"></i> Facebook
@@ -187,11 +181,9 @@
                     <i class="bi bi-envelope-at-fill"></i> Gmail
                 </a>
             </div>
-
             <hr class="border-secondary my-5">
             <p class="small text-secondary mb-0">
-                &copy; 2026 Mascotas Sanas Arg - Catálogo de Afiliados Oficial de Hotmart.<br>
-                Todos los derechos reservados.
+                &copy; 2026 Mascotas Sanas Arg - Catálogo de Afiliados Oficial de Hotmart.
             </p>
         </div>
     </footer>
@@ -202,27 +194,21 @@
     <script>
         async function ajustarPrecios() {
             try {
-                // Usamos una API gratuita para detectar la ubicación por IP
                 const response = await fetch('https://ipapi.co/json/');
                 const data = await response.json();
-                
                 const elementosPrecio = document.querySelectorAll('.precio-dinamico');
                 
                 elementosPrecio.forEach(el => {
                     if (data.country_code === 'AR') {
-                        // Si es Argentina, mostramos el valor en pesos que definimos en el HTML
                         el.innerText = el.getAttribute('data-precio-ars');
                     } else {
-                        // Si es cualquier otro país (México, USA, etc), mostramos USD
                         el.innerText = el.getAttribute('data-precio-usd');
                     }
                 });
             } catch (error) {
-                console.log("Error al detectar país, se mantiene el precio por defecto del servidor.");
+                console.log("Error de geolocalización.");
             }
         }
-
-        // Ejecutar la función al cargar la página
         window.onload = ajustarPrecios;
     </script>
 </body>
