@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mascotas Sanas Arg | Bienestar y Nutrición Animal</title>
+    <meta name="description" content="Recomendaciones independientes de cursos online sobre nutrición, primeros auxilios y cuidado de perros y gatos.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
@@ -33,6 +34,15 @@
                         url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=1500');
             background-size: cover;
             background-position: center;
+            text-align: center;
+        }
+
+        .aviso-afiliado {
+            background-color: #232b3d;
+            border-bottom: 1px solid #333;
+            padding: 12px 0;
+            font-size: 0.9rem;
+            color: #c9c9c9;
             text-align: center;
         }
 
@@ -70,6 +80,8 @@
         }
         .btn-hotmart:hover { background-color: #c04a10; color: white; transform: scale(1.05); }
 
+        .nota-precios { color: var(--text-secondary); font-size: 0.9rem; }
+
         footer { 
             background-color: #0b0e14; 
             padding: 60px 0; 
@@ -96,11 +108,18 @@
         </div>
     </nav>
 
+    <div class="aviso-afiliado">
+        <div class="container">
+            <i class="bi bi-info-circle"></i>
+            Transparencia: este sitio es independiente. Recomendamos cursos de Hotmart y podemos recibir una comisión si comprás desde nuestros links, sin ningún costo extra para vos.
+        </div>
+    </div>
+
     <header class="hero">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Tu mascota merece lo mejor</h1>
             <p class="lead mb-4 fs-4 text-light">Acompañamos a dueños responsables en el camino hacia una vida animal más sana.</p>
-            <a href="#cursos" class="btn btn-lg btn-hotmart px-5 py-2">Ver Catálogo Profesional</a>
+            <a href="#cursos" class="btn btn-lg btn-hotmart px-5 py-2">Ver Catálogo de Cursos</a>
         </div>
     </header>
 
@@ -111,10 +130,13 @@
                     <h2 class="fw-bold mb-4" style="color: var(--accent);">Nuestra Misión</h2>
                     <p class="lead mb-4">
                         Hola, bienvenido a <strong>Mascotas Sanas Arg</strong>. 
-                        Nuestra misión es conectar a dueños responsables con los mejores programas educativos de <strong>Hotmart</strong>.
+                        Nuestra misión es conectar a dueños responsables con programas educativos de <strong>Hotmart</strong> sobre el cuidado de perros y gatos.
                     </p>
                     <p class="text-secondary fs-5">
-                        Seleccionamos cuidadosamente cursos de nutrición, primeros auxilios y estética profesional para que tu perro o gato reciba el cuidado de excelencia que se merece.
+                        Seleccionamos cursos de nutrición, primeros auxilios y estética para que tu perro o gato reciba el mejor cuidado.
+                    </p>
+                    <p class="small text-secondary">
+                        Los cursos son educativos y no reemplazan la consulta con un médico veterinario. Ante cualquier problema de salud de tu mascota, consultá con un profesional.
                     </p>
                 </div>
             </div>
@@ -126,42 +148,41 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <i class="bi bi-shield-check-fill h1 text-success"></i>
-                    <h4 class="fw-bold">Garantía Hotmart</h4>
-                    <p class="text-muted">7 días de satisfacción garantizada o te devolvemos el 100% de tu dinero.</p>
+                    <h4 class="fw-bold">Compra protegida</h4>
+                    <p class="text-muted">Comprás a través de Hotmart, con garantía de reembolso según las condiciones de cada curso.</p>
                 </div>
                 <div class="col-md-4">
                     <i class="bi bi-laptop-fill h1 text-primary"></i>
-                    <h4 class="fw-bold">Acceso Inmediato</h4>
-                    <p class="text-muted">Estudiá a tu ritmo, desde cualquier dispositivo y para siempre.</p>
+                    <h4 class="fw-bold">Acceso inmediato</h4>
+                    <p class="text-muted">Estudiá a tu ritmo, desde cualquier dispositivo. El tiempo de acceso depende de cada curso.</p>
                 </div>
                 <div class="col-md-4">
                     <i class="bi bi-patch-check-fill h1 text-warning"></i>
-                    <h4 class="fw-bold">Certificado Oficial</h4>
-                    <p class="text-muted">Al finalizar cada curso, recibís una certificación internacional de Hotmart.</p>
+                    <h4 class="fw-bold">Certificado (según el curso)</h4>
+                    <p class="text-muted">Algunos cursos incluyen certificado de finalización. Revisá el detalle en la página de cada uno.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <main class="container py-5" id="cursos">
-        <h2 class="text-center mb-5 fw-bold">Nuestras Recomendaciones</h2>
+        <h2 class="text-center mb-2 fw-bold">Nuestras Recomendaciones</h2>
+        <p class="text-center nota-precios mb-5">
+            Los precios son de referencia. En el checkout de Hotmart verás el valor final y los medios de pago disponibles en tu país.
+        </p>
         <div class="row g-4">
             {% for p in productos %}
             <div class="col-md-4 col-lg-3">
                 <div class="card shadow-sm">
-                    <img src="{{ url_for('static', filename=p.img) }}" class="card-img-top" alt="{{ p.titulo }}">
+                    <img src="{{ url_for('static', filename=p.img) }}" class="card-img-top" alt="{{ p.titulo }}" loading="lazy">
                     <div class="card-body d-flex flex-column text-center">
                         <h6 class="card-title fw-bold mb-3">{{ p.titulo }}</h6>
                         <p class="card-text small text-secondary mb-4">{{ p.descripcion }}</p>
                         
-                        <p class="h5 text-success mt-auto mb-3 precio-dinamico" 
-                           data-precio-ars="{{ p.precio }}" 
-                           data-precio-usd="{% if 'Alimentación' in p.titulo %}10.00 USD{% elif 'Primeros' in p.titulo %}49.99 USD{% elif 'Peluquería' in p.titulo %}49.99 USD{% elif 'Pastelería' in p.titulo %}69.99 USD{% else %}25.00 USD{% endif %}">
-                           {{ p.precio }}
-                        </p>
+                        <p class="h5 text-success mt-auto mb-3">{{ p.precio }}</p>
 
-                        <a href="{{ p.link }}" target="_blank" class="btn btn-hotmart w-100">
-                            ¡Inscribirme Ahora!
+                        <a href="{{ p.link }}" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-hotmart w-100">
+                            Ver curso
                         </a>
                     </div>
                 </div>
@@ -174,42 +195,25 @@
         <div class="container text-center">
             <h3 class="fw-bold mb-4" style="color: var(--accent);"><i class="bi bi-paw-fill"></i> Mascotas Sanas Arg</h3>
             <div class="mb-4">
-                <a href="https://facebook.com/MascotasSanasArg" target="_blank" class="btn btn-outline-light btn-lg mx-2">
+                <a href="https://facebook.com/MascotasSanasArg" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg mx-2">
                     <i class="bi bi-facebook"></i> Facebook
                 </a>
-                <a href="mailto:tuemail@gmail.com" class="btn btn-outline-light btn-lg mx-2">
-                    <i class="bi bi-envelope-at-fill"></i> Gmail
+                <!-- REEMPLAZAR por tu email real -->
+                <a href="mailto:mascotassanasarg@gmail.com" class="btn btn-outline-light btn-lg mx-2">
+                    <i class="bi bi-envelope-at-fill"></i> Email
                 </a>
             </div>
             <hr class="border-secondary my-5">
+            <p class="small text-secondary mb-2">
+                Mascotas Sanas Arg es un sitio independiente de afiliados. No somos Hotmart ni los creadores de los cursos. Podemos recibir comisión por las compras realizadas desde nuestros links.
+            </p>
             <p class="small text-secondary mb-0">
-                &copy; 2026 Mascotas Sanas Arg - Catálogo de Afiliados Oficial de Hotmart.
+                &copy; 2026 Mascotas Sanas Arg
             </p>
         </div>
     </footer>
 
     <script src="//code.tidio.co/sza80fdqritoeezbi3bro2ft28pjxibi.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        async function ajustarPrecios() {
-            try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                const elementosPrecio = document.querySelectorAll('.precio-dinamico');
-                
-                elementosPrecio.forEach(el => {
-                    if (data.country_code === 'AR') {
-                        el.innerText = el.getAttribute('data-precio-ars');
-                    } else {
-                        el.innerText = el.getAttribute('data-precio-usd');
-                    }
-                });
-            } catch (error) {
-                console.log("Error de geolocalización.");
-            }
-        }
-        window.onload = ajustarPrecios;
-    </script>
 </body>
 </html>
